@@ -1450,23 +1450,23 @@ Arquivo: `views/useredit.handlebars`
             name="newsletter" 
             {{#if user.newsletter}}checked{{/if}}
           />
-          <label for="newsletter">📧 Receber newsletter</label>
+          <label for="newsletter">Receber newsletter</label>
         </div>
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">💾 Salvar Alterações</button>
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
       </div>
     </form>
   </section>
 
   <!-- Seção de Endereços -->
   <section class="addresses-section">
-    <h2>🏠 Gerenciar Endereços</h2>
+    <h2>Gerenciar Endereços</h2>
   
     <!-- Formulário para Adicionar Novo Endereço -->
     <div class="address-form-container">
-      <h3>➕ Adicionar Novo Endereço</h3>
+      <h3>Adicionar Novo Endereço</h3>
     
       <form action="/address/create" method="POST" class="address-form">
         <input type="hidden" name="userId" value="{{user.id}}" />
@@ -1513,23 +1513,23 @@ Arquivo: `views/useredit.handlebars`
           />
         </div>
       
-        <button type="submit" class="btn btn-primary">🏠 Adicionar Endereço</button>
+        <button type="submit" class="btn btn-primary">Adicionar Endereço</button>
       </form>
     </div>
 
     <!-- Lista de Endereços Existentes -->
     <div class="addresses-list-container">
-      <h3>📋 Endereços Cadastrados ({{user.addresses.length}})</h3>
+      <h3>Endereços Cadastrados ({{user.addresses.length}})</h3>
     
       {{#if user.addresses.length}}
       <div class="addresses-list">
         {{#each user.addresses}}
         <div class="address-item">
           <div class="address-info">
-            <strong>📍 {{this.street}}</strong>
+            <strong>{{this.street}}</strong>
             {{#if this.number}}, nº {{this.number}}{{/if}}
             <br>
-            <span class="city">🏘️ {{this.city}}</span>
+            <span class="city">{{this.city}}</span>
             <small class="address-meta">ID: #{{this.id}}</small>
           </div>
         
@@ -1540,9 +1540,9 @@ Arquivo: `views/useredit.handlebars`
               <button 
                 type="submit" 
                 class="btn btn-danger btn-sm"
-                onclick="return confirm('⚠️ Tem certeza que deseja excluir este endereço?')"
+                onclick="return confirm('Tem certeza que deseja excluir este endereço?')"
               >
-                🗑️ Excluir
+                Excluir
               </button>
             </form>
           </div>
@@ -1746,10 +1746,10 @@ npm run dev
 3. **Você deve ver mensagens similares a:**
 
 ```
-✅ Conexão com MySQL estabelecida com sucesso!
-✅ Modelos sincronizados com o banco de dados!
-🚀 Servidor rodando em http://localhost:3000
-💡 Pressione Ctrl+C para parar o servidor
+Conexão com MySQL estabelecida com sucesso!
+Modelos sincronizados com o banco de dados!
+Servidor rodando em http://localhost:3000
+Pressione Ctrl+C para parar o servidor
 ```
 
 4. **Abra o navegador em:** `http://localhost:3000`
@@ -1765,9 +1765,9 @@ npm run dev
 
 ---
 
-## 🔧 SOLUÇÃO DE PROBLEMAS COMUNS
+## SOLUÇÃO DE PROBLEMAS COMUNS
 
-### ❌ Erro de Conexão com MySQL
+### Erro de Conexão com MySQL
 
 **Problema:** `ECONNREFUSED 127.0.0.1:3306`
 
@@ -1777,7 +1777,7 @@ npm run dev
 2. Confirmar usuário e senha no arquivo `db/conn.js`
 3. Certificar que o banco `nodesequelize` existe
 
-### ❌ Erro "Cannot GET /"
+### Erro "Cannot GET /"
 
 **Problema:** Página não carrega
 
@@ -1787,7 +1787,7 @@ npm run dev
 2. Confirmar estrutura de pastas
 3. Verificar se o arquivo `index.js` está correto
 
-### ❌ Erro de Template
+### Erro de Template
 
 **Problema:** `Error: Failed to lookup view`
 
@@ -1799,7 +1799,7 @@ npm run dev
 
 ---
 
-## 🎓 CONCEITOS IMPORTANTES APRENDIDOS
+## CONCEITOS IMPORTANTES APRENDIDOS
 
 ### 1. **ORM (Object-Relational Mapping)**
 
@@ -1828,7 +1828,7 @@ npm run dev
 
 ---
 
-## 📚 PRÓXIMOS PASSOS
+## PRÓXIMOS PASSOS
 
 ### Melhorias que você pode implementar:
 
@@ -1842,17 +1842,17 @@ npm run dev
 
 ---
 
-## 🏆 PARABÉNS!
+## PARABÉNS!
 
 Você criou uma aplicação web completa com:
 
-- ✅ Conexão com banco de dados MySQL
-- ✅ Operações CRUD completas
-- ✅ Relacionamento entre tabelas
-- ✅ Interface visual atrativa
-- ✅ Validações e tratamento de erros
-- ✅ Design responsivo
+- Conexão com banco de dados MySQL
+- Operações CRUD completas
+- Relacionamento entre tabelas
+- Interface visual atrativa
+- Validações e tratamento de erros
+- Design responsivo
 
-Continue estudando e praticando! 🚀
+Continue estudando e praticando! 
 
 ---
