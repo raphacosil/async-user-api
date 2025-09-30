@@ -1,10 +1,10 @@
 # Roteiro do Aluno: Conectando Node.js com MySQL usando Sequelize
 
-## 🎯 Objetivo do Projeto
+## Objetivo do Projeto
 
 Aprender a criar uma aplicação web completa usando Node.js, Express, MySQL e Sequelize para gerenciar usuários e seus endereços.
 
-## 🛠️ O que vamos construir?
+## O que vamos construir?
 
 - Uma aplicação web para cadastrar usuários
 - Sistema CRUD (Create, Read, Update, Delete) completo
@@ -13,7 +13,7 @@ Aprender a criar uma aplicação web completa usando Node.js, Express, MySQL e S
 
 ---
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 - Node.js instalado
 - MySQL Server e MySQL Workbench
@@ -22,7 +22,7 @@ Aprender a criar uma aplicação web completa usando Node.js, Express, MySQL e S
 
 ---
 
-## 🚀 PARTE 1: CONFIGURAÇÃO INICIAL
+## PARTE 1: CONFIGURAÇÃO INICIAL
 
 ### Passo 1: Criando o Projeto
 
@@ -53,7 +53,7 @@ npm install express express-handlebars mysql2 sequelize
 npm install nodemon --save-dev
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - `express`: Framework web para Node.js
 - `express-handlebars`: Motor de templates para criar páginas HTML
@@ -90,7 +90,7 @@ meu-projeto-sequelize/
     └── Address.js
 ```
 
-**📝 Explicação da estrutura:**
+**Explicação da estrutura:**
 
 - `index.js`: Arquivo principal da aplicação
 - `public/`: Arquivos estáticos (CSS, imagens, JS do front-end)
@@ -100,7 +100,7 @@ meu-projeto-sequelize/
 
 ---
 
-## 🎨 PARTE 2: INTERFACE E LAYOUT
+## PARTE 2: INTERFACE E LAYOUT
 
 ### Passo 3: Layout Principal
 
@@ -124,8 +124,8 @@ Arquivo: `views/layouts/main.handlebars`
         <h2>Sistema de Usuários</h2>
       </div>
       <ul>
-        <li><a href="/">📋 Listar Usuários</a></li>
-        <li><a href="/users/create">➕ Cadastrar Usuário</a></li>
+        <li><a href="/">Listar Usuários</a></li>
+        <li><a href="/users/create">Cadastrar Usuário</a></li>
       </ul>
     </nav>
     <main class="container">
@@ -135,7 +135,7 @@ Arquivo: `views/layouts/main.handlebars`
 </html>
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - Este é o layout base que envolve todas as páginas
 - `{{{ body }}}` é onde o conteúdo específico de cada página será inserido
@@ -151,8 +151,8 @@ Arquivo: `views/home.handlebars`
 
 ```html
 <div class="page-header">
-  <h1>👥 Usuários Cadastrados</h1>
-  <a href="/users/create" class="btn btn-primary">➕ Adicionar Novo Usuário</a>
+  <h1>Usuários Cadastrados</h1>
+  <a href="/users/create" class="btn btn-primary">Adicionar Novo Usuário</a>
 </div>
 
 {{#if users}}
@@ -161,21 +161,21 @@ Arquivo: `views/home.handlebars`
     <div class="user-card">
       <div class="user-info">
         <h3>{{this.name}}</h3>
-        <p class="occupation">💼 {{this.occupation}}</p>
+        <p class="occupation">{{this.occupation}}</p>
         <p class="newsletter">
           {{#if this.newsletter}}
-            📧 Recebe newsletter
+             Recebe newsletter
           {{else}}
-            📭 Não recebe newsletter
+            Não recebe newsletter
           {{/if}}
         </p>
       </div>
       <div class="user-actions">
-        <a href="/users/{{this.id}}" class="btn btn-info">👁️ Ver</a>
-        <a href="/users/edit/{{this.id}}" class="btn btn-warning">✏️ Editar</a>
+        <a href="/users/{{this.id}}" class="btn btn-info">Ver</a>
+        <a href="/users/edit/{{this.id}}" class="btn btn-warning">Editar</a>
         <form action="/users/delete/{{this.id}}" method="POST" class="delete-form">
           <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
-            🗑️ Excluir
+            Excluir
           </button>
         </form>
       </div>
@@ -186,12 +186,12 @@ Arquivo: `views/home.handlebars`
 <div class="empty-state">
   <h3>Nenhum usuário cadastrado ainda</h3>
   <p>Que tal adicionar o primeiro usuário?</p>
-  <a href="/users/create" class="btn btn-primary">➕ Cadastrar Primeiro Usuário</a>
+  <a href="/users/create" class="btn btn-primary">Cadastrar Primeiro Usuário</a>
 </div>
 {{/if}}
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - `{{#if users}}` verifica se existem usuários para mostrar
 - `{{#each users}}` percorre todos os usuários
@@ -509,7 +509,7 @@ body {
 }
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - Design moderno com gradientes e sombras
 - Responsivo para diferentes tamanhos de tela
@@ -518,7 +518,7 @@ body {
 
 ---
 
-## 🗄️ PARTE 3: BANCO DE DADOS E CONEXÃO
+## PARTE 3: BANCO DE DADOS E CONEXÃO
 
 ### Passo 6: Criando o Banco de Dados
 
@@ -532,7 +532,7 @@ CREATE DATABASE nodesequelize CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE nodesequelize;
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - `CHARACTER SET utf8mb4`: Suporte completo para caracteres Unicode
 - `COLLATE utf8mb4_unicode_ci`: Regras de comparação de texto
@@ -569,9 +569,9 @@ const sequelize = new Sequelize('nodesequelize', 'root', '', {
 async function testConnection() {
   try {
     await sequelize.authenticate();
-    console.log('✅ Conexão com MySQL estabelecida com sucesso!');
+    console.log('Conexão com MySQL estabelecida com sucesso!');
   } catch (error) {
-    console.error('❌ Erro ao conectar com o banco de dados:', error.message);
+    console.error('Erro ao conectar com o banco de dados:', error.message);
   }
 }
 
@@ -580,7 +580,7 @@ testConnection();
 module.exports = sequelize;
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - `pool`: Gerencia o pool de conexões para melhor performance
 - `logging`: Permite ver as queries SQL executadas
@@ -588,7 +588,7 @@ module.exports = sequelize;
 
 ---
 
-## 📊 PARTE 4: MODELOS (TABELAS)
+## PARTE 4: MODELOS (TABELAS)
 
 ### Passo 8: Modelo de Usuário
 
@@ -646,7 +646,7 @@ const User = db.define('User', {
 module.exports = User;
 ```
 
-**📝 Explicação:**
+**Explicação:**
 
 - `validate`: Regras de validação dos dados
 - `indexes`: Melhora performance de buscas
@@ -725,7 +725,7 @@ User.hasMany(Address, {
 module.exports = Address;
 ```
 
-**📝 Explicação dos Relacionamentos:**
+**Explicação dos Relacionamentos:**
 
 - `Address.belongsTo(User)`: Um endereço pertence a um usuário
 - `User.hasMany(Address)`: Um usuário pode ter vários endereços
@@ -734,7 +734,7 @@ module.exports = Address;
 
 ---
 
-## 🌐 PARTE 5: SERVIDOR E ROTAS
+## PARTE 5: SERVIDOR E ROTAS
 
 ### Passo 10: Configuração do Servidor Principal
 
@@ -1031,15 +1031,15 @@ async function startServer() {
   try {
     // Sincronizar modelos com o banco de dados
     await conn.sync();
-    console.log('✅ Modelos sincronizados com o banco de dados!');
+    console.log('Modelos sincronizados com o banco de dados!');
   
     // Iniciar servidor
     app.listen(PORT, () => {
-      console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-      console.log('💡 Pressione Ctrl+C para parar o servidor');
+      console.log(`Servidor rodando em http://localhost:${PORT}`);
+      console.log('Pressione Ctrl+C para parar o servidor');
     });
   } catch (error) {
-    console.error('❌ Erro ao iniciar servidor:', error);
+    console.error('Erro ao iniciar servidor:', error);
     process.exit(1);
   }
 }
@@ -1047,7 +1047,7 @@ async function startServer() {
 startServer();
 ```
 
-**📝 Explicação Detalhada:**
+**Explicação Detalhada:**
 
 - **Middleware de log**: Registra todas as requisições
 - **Tratamento de erros**: Try-catch em todas as operações
@@ -1057,7 +1057,7 @@ startServer();
 
 ---
 
-## 📝 PARTE 6: PÁGINAS COMPLEMENTARES
+## PARTE 6: PÁGINAS COMPLEMENTARES
 
 ### Passo 11: Página de Cadastro de Usuário
 
@@ -1067,19 +1067,19 @@ Arquivo: `views/adduser.handlebars`
 
 ```html
 <div class="page-header">
-  <h1>➕ Cadastrar Novo Usuário</h1>
-  <a href="/" class="btn btn-info">⬅️ Voltar para Lista</a>
+  <h1>Cadastrar Novo Usuário</h1>
+  <a href="/" class="btn btn-info">Voltar para Lista</a>
 </div>
 
 {{#if error}}
 <div class="alert alert-error">
-  ⚠️ {{error}}
+  {{error}}
 </div>
 {{/if}}
 
 <form action="/users/create" method="POST" class="form">
   <div class="form-group">
-    <label for="name">👤 Nome Completo *</label>
+    <label for="name">Nome Completo *</label>
     <input 
       type="text" 
       id="name"
@@ -1095,7 +1095,7 @@ Arquivo: `views/adduser.handlebars`
   </div>
 
   <div class="form-group">
-    <label for="occupation">💼 Profissão</label>
+    <label for="occupation">Profissão</label>
     <input 
       type="text" 
       id="occupation"
@@ -1116,14 +1116,14 @@ Arquivo: `views/adduser.handlebars`
         name="newsletter" 
         {{#if formData.newsletter}}checked{{/if}}
       />
-      <label for="newsletter">📧 Deseja receber nossa newsletter?</label>
+      <label for="newsletter">Deseja receber nossa newsletter?</label>
     </div>
     <small class="form-text">Você pode alterar essa opção a qualquer momento</small>
   </div>
 
   <div class="form-actions">
-    <button type="submit" class="btn btn-primary">✅ Cadastrar Usuário</button>
-    <a href="/" class="btn btn-secondary">❌ Cancelar</a>
+    <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
   </div>
 </form>
 
@@ -1178,15 +1178,15 @@ Arquivo: `views/userview.handlebars`
 ```html
 {{#if error}}
 <div class="alert alert-error">
-  ⚠️ {{error}}
-  <a href="/" class="btn btn-primary">⬅️ Voltar para Lista</a>
+  {{error}}
+  <a href="/" class="btn btn-primary">Voltar para Lista</a>
 </div>
 {{else}}
 <div class="page-header">
-  <h1>👤 Detalhes do Usuário</h1>
+  <h1>Detalhes do Usuário</h1>
   <div class="header-actions">
-    <a href="/" class="btn btn-info">⬅️ Voltar</a>
-    <a href="/users/edit/{{user.id}}" class="btn btn-warning">✏️ Editar</a>
+    <a href="/" class="btn btn-info">Voltar</a>
+    <a href="/users/edit/{{user.id}}" class="btn btn-warning">Editar</a>
   </div>
 </div>
 
@@ -1196,29 +1196,29 @@ Arquivo: `views/userview.handlebars`
   
     <div class="info-grid">
       <div class="info-item">
-        <strong>💼 Profissão:</strong>
+        <strong>Profissão:</strong>
         <span>{{#if user.occupation}}{{user.occupation}}{{else}}Não informada{{/if}}</span>
       </div>
     
       <div class="info-item">
-        <strong>📧 Newsletter:</strong>
+        <strong>Newsletter:</strong>
         <span class="newsletter-status {{#if user.newsletter}}active{{else}}inactive{{/if}}">
           {{#if user.newsletter}}
-            ✅ Ativo
+            Ativo
           {{else}}
-            ❌ Inativo
+            Inativo
           {{/if}}
         </span>
       </div>
     
       <div class="info-item">
-        <strong>📅 Cadastrado em:</strong>
+        <strong>Cadastrado em:</strong>
         <span>{{formatDate user.createdAt}}</span>
       </div>
     
       {{#if user.updatedAt}}
       <div class="info-item">
-        <strong>🔄 Última atualização:</strong>
+        <strong>Última atualização:</strong>
         <span>{{formatDate user.updatedAt}}</span>
       </div>
       {{/if}}
@@ -1227,17 +1227,17 @@ Arquivo: `views/userview.handlebars`
 
   {{#if user.addresses}}
   <div class="addresses-section">
-    <h3>🏠 Endereços ({{user.addresses.length}})</h3>
+    <h3>Endereços ({{user.addresses.length}})</h3>
   
     {{#if user.addresses.length}}
     <div class="addresses-list">
       {{#each user.addresses}}
       <div class="address-card">
         <div class="address-info">
-          <strong>📍 {{this.street}}</strong>
+          <strong>{{this.street}}</strong>
           {{#if this.number}}, {{this.number}}{{/if}}
           <br>
-          <span class="city">🏘️ {{this.city}}</span>
+          <span class="city">{{this.city}}</span>
         </div>
         <div class="address-actions">
           <span class="address-id">#{{this.id}}</span>
@@ -1247,19 +1247,19 @@ Arquivo: `views/userview.handlebars`
     </div>
     {{else}}
     <div class="empty-addresses">
-      <p>📭 Nenhum endereço cadastrado ainda</p>
-      <a href="/users/edit/{{user.id}}" class="btn btn-primary">➕ Adicionar Endereço</a>
+      <p>Nenhum endereço cadastrado ainda</p>
+      <a href="/users/edit/{{user.id}}" class="btn btn-primary">Adicionar Endereço</a>
     </div>
     {{/if}}
   </div>
   {{/if}}
   
   <div class="actions-section">
-    <a href="/users/edit/{{user.id}}" class="btn btn-primary">✏️ Editar Usuário</a>
+    <a href="/users/edit/{{user.id}}" class="btn btn-primary">Editar Usuário</a>
     <form action="/users/delete/{{user.id}}" method="POST" class="delete-form">
       <button type="submit" class="btn btn-danger" 
-              onclick="return confirm('⚠️ Tem certeza que deseja excluir este usuário?\n\nEsta ação não pode ser desfeita e também excluirá todos os endereços associados.')">
-        🗑️ Excluir Usuário
+              onclick="return confirm('Tem certeza que deseja excluir este usuário?\n\nEsta ação não pode ser desfeita e também excluirá todos os endereços associados.')">
+        Excluir Usuário
       </button>
     </form>
   </div>
@@ -1399,10 +1399,10 @@ Arquivo: `views/useredit.handlebars`
 
 ```html
 <div class="page-header">
-  <h1>✏️ Editando: {{user.name}}</h1>
+  <h1>Editando: {{user.name}}</h1>
   <div class="header-actions">
-    <a href="/users/{{user.id}}" class="btn btn-info">👁️ Ver Detalhes</a>
-    <a href="/" class="btn btn-secondary">⬅️ Voltar para Lista</a>
+    <a href="/users/{{user.id}}" class="btn btn-info">Ver Detalhes</a>
+    <a href="/" class="btn btn-secondary"> Voltar para Lista</a>
   </div>
 </div>
 
